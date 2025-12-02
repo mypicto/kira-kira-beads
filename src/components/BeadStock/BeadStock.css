@@ -23,8 +23,20 @@
 
 .beadstock-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
   gap: 10px;
+}
+
+.beadstock-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(56px, 1fr));
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+}
+
+.beadstock-placeholder {
+  width: 56px;
+  height: 56px;
 }
 
 @media (max-width: 768px) {
@@ -33,7 +45,16 @@
   }
 
   .beadstock-grid {
-    grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
     gap: 8px;
+  }
+
+  .beadstock-row {
+    grid-template-columns: repeat(6, minmax(48px, 1fr));
+    gap: 8px;
+  }
+
+  .beadstock-placeholder {
+    width: 48px;
+    height: 48px;
   }
 }

@@ -199,6 +199,7 @@ export default function App() {
           />
           <BeadStock
             beads={beadStock}
+            colorOrder={config.colors}
             onBeadDragStart={handleBeadDragStart}
             onSelect={(bead) => setSelectedBead(bead)}
             selectedBeadId={selectedBead?.id ?? null}
