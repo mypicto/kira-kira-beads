@@ -89,7 +89,7 @@
 
 その他 UI 要素：
 
-* 右上：決定ボタン（OK アイコン）
+* 右上：回答ボタン（ANSWER アイコン）
 * 左上：リセットボタン
 * ラウンド表示の隣：難易度切替ボタン（★アイコン）
 * `result` フェーズ時：画面下部中央に「つぎへ」ボタン
@@ -145,7 +145,7 @@ type GamePhase = 'idle' | 'showing' | 'reproduce' | 'result';
 | --------- | -------------------- | --------- |
 | idle      | 「再生ボタン」クリック          | showing   |
 | showing   | 提示時間経過               | reproduce |
-| reproduce | 決定ボタン（BTN_OK）クリック    | result    |
+| reproduce | 回答ボタン（BTN_ANSWER）クリック    | result    |
 | result    | つぎへボタン（BTN_NEXT）クリック | idle      |
 
 * `result` フェーズでは、**ユーザーが BTN_NEXT を押すまで次に進まない**。
@@ -527,7 +527,7 @@ function calcScore(problem: Problem, placement: Slot[]): ScoreResult {
 | ボタン          | idle | showing | reproduce | result | 合計発表表示中 |
 | -------------- | ---- | ------- | --------- | ------ | -------------- |
 | 再生（PLAY）     | 有効 | 無効    | 無効      | 無効   | 無効           |
-| 決定（OK）       | 無効 | 無効    | 有効      | 無効   | 無効           |
+| 回答（ANSWER）   | 無効 | 無効    | 有効      | 無効   | 無効           |
 | リセット         | 有効 | 無効    | 有効      | 無効   | 無効           |
 | 難易度切替       | 有効 | 無効    | 無効      | 無効   | 無効           |
 | つぎへ（NEXT）   | 非表示 | 非表示  | 非表示    | 有効   | 無効（合計発表が優先） |
@@ -604,8 +604,7 @@ function calcScore(problem: Problem, placement: Slot[]): ScoreResult {
 
 ### 12.5 `<BeadStock />`, `<Slot />`, `<Bead />`, `<Controls />`
 
-* v0.1 仕様と同様。
-* `<Controls />` は BTN_OK / BTN_RESET / BTN_LEVEL の表示・制御を担当する。
+* `<Controls />` は BTN_ANSWER / BTN_RESET / BTN_LEVEL の表示・制御を担当する。
 
 ---
 
