@@ -131,7 +131,7 @@ export type Problem = {
   slots: Slot[];
 };
 
-export type Difficulty = 'easy' | 'normal';
+export type Difficulty = 'easy' | 'normal'; // デフォルトは 'normal'
 
 export type ResultRank = 'perfect' | 'good' | 'ok' | 'try';
 
@@ -332,13 +332,12 @@ export type GameAction =
 
 * `App`
 
-  * `PhaseIndicator`
-  * `RoundStatus`
-  * `GameBoard`
-  * `ResultView`（phase === 'result' のときのみ）
-  * `RoundSummary`（Round3 後に showTotalSummary が true のときのみ）
-  * `BeadStock`
-  * `Controls`
+* `RoundStatus`（隣に難易度切替ボタンを配置）
+* `GameBoard`
+* `ResultView`（phase === 'result' のときのみ）
+* `RoundSummary`（Round3 後に showTotalSummary が true のときのみ）
+* `BeadStock`
+* `Controls`
 
 ### 5.2 App.tsx
 
@@ -458,7 +457,7 @@ props：
 
 責務：
 
-* 再生ボタン・決定ボタン・リセットボタン・難易度切替ボタンの表示とイベント発火
+* 再生ボタン・回答ボタン・リセットボタン・難易度切替ボタンの表示とイベント発火
 
 props：
 
@@ -476,7 +475,7 @@ props：
 | ボタン          | idle | showing | reproduce | result | 合計発表表示中 |
 | -------------- | ---- | ------- | --------- | ------ | -------------- |
 | 再生（PLAY）     | 有効 | 無効    | 無効      | 無効   | 無効           |
-| 決定（OK）       | 無効 | 無効    | 有効      | 無効   | 無効           |
+| 回答（ANSWER）   | 無効 | 無効    | 有効      | 無効   | 無効           |
 | リセット         | 有効 | 無効    | 有効      | 無効   | 無効           |
 | 難易度切替       | 有効 | 無効    | 無効      | 無効   | 無効           |
 | つぎへ（NEXT）   | 非表示 | 非表示  | 非表示    | 有効   | 無効（合計発表が優先） |
@@ -513,7 +512,7 @@ props：
 責務：
 
 * 現在のラウンド進行状況（例：`Round 2 / 3`）を表示
-* PhaseIndicator 近くに小さく配置し、セッションの残数を明示
+* 難易度切替ボタンと横並びに配置し、セッションの残数を明示
 
 props：
 
@@ -550,6 +549,12 @@ props：
 
   * 例：`.GameBoard-root`, `.Slot-frame`, `.Bead-circle-small` など
 * レイアウトは Flexbox で上下 3 分割を実現
+* レスポンシブ対応（768px 未満）：
+
+  * スロットやビーズのサイズを縮小し、比較ビューは 1 カラム表示に切替。
+  * ストックを複数列から自動フィットに変更。
+  * ボタンは幅100%を許容してタップ領域を確保。
+  * フォントサイズと余白を微縮小（0.85〜0.9倍相当）で視認性を維持。
 
 ---
 
