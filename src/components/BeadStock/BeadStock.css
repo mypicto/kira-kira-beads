@@ -1,0 +1,39 @@
+.beadstock {
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.beadstock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.beadstock-title {
+  font-weight: 700;
+}
+
+.beadstock-hint {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.beadstock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .beadstock {
+    padding: 12px 12px;
+  }
+
+  .beadstock-grid {
+    grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+    gap: 8px;
+  }
+}

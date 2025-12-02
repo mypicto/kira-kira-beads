@@ -1,0 +1,86 @@
+.slot {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  border: 2px dashed rgba(122, 149, 196, 0.5);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(235, 242, 255, 0.85));
+  transition: border-color 160ms ease, transform 120ms ease, box-shadow 120ms ease;
+  cursor: pointer;
+}
+
+.slot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(103, 134, 193, 0.22);
+}
+
+.slot-placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px dashed rgba(122, 149, 196, 0.5);
+  opacity: 0.7;
+}
+
+.slot-index {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.slot-disabled {
+  cursor: not-allowed;
+}
+
+.slot-border-default {
+  border-color: rgba(122, 149, 196, 0.5);
+}
+
+.slot-border-green {
+  border-color: #6acb8f;
+  box-shadow: 0 0 0 3px rgba(106, 203, 143, 0.35);
+}
+
+.slot-border-yellow {
+  border-color: #f4c84d;
+  box-shadow: 0 0 0 3px rgba(244, 200, 77, 0.32);
+}
+
+.slot-border-red {
+  border-color: #ff8b8b;
+  box-shadow: 0 0 0 3px rgba(255, 139, 139, 0.35);
+}
+
+@media (max-width: 640px) {
+  .slot {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
+
+  .slot-placeholder {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slot-index {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slot {
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+  }
+
+  .slot-placeholder {
+    width: 26px;
+    height: 26px;
+  }
+}

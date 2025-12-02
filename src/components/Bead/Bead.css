@@ -1,0 +1,122 @@
+.bead {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25);
+  cursor: grab;
+  transition: box-shadow 120ms ease, outline 120ms ease;
+}
+
+.bead-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.18);
+}
+
+.bead-size-small {
+  width: 42px;
+  height: 42px;
+}
+
+.bead-size-large {
+  width: 56px;
+  height: 56px;
+}
+
+.bead-shape-circle {
+  border-radius: 999px;
+}
+
+.bead-shape-rounded-rect {
+  border-radius: 14px;
+}
+
+.bead-shape-diamond {
+  transform: rotate(45deg);
+  border-radius: 12px;
+}
+
+.bead-color-red {
+  background: linear-gradient(135deg, #ff5f6d, #ff3a55);
+  border: 2px solid #c81d3a;
+}
+
+.bead-color-orange {
+  background: linear-gradient(135deg, #ffb347, #ff9a36);
+  border: 2px solid #d87421;
+}
+
+.bead-color-yellow {
+  background: linear-gradient(135deg, #fce38a, #f6d365);
+  border: 2px solid #d7a436;
+}
+
+.bead-color-sky {
+  background: linear-gradient(135deg, #7ad7f0, #43b0f1);
+  border: 2px solid #1b8bd6;
+}
+
+.bead-color-blue {
+  background: linear-gradient(135deg, #7f7afc, #4f52f5);
+  border: 2px solid #2f36b2;
+}
+
+.bead-glare {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 12%;
+  width: 30%;
+  height: 30%;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.bead-selected {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 0 4px rgba(255, 255, 255, 0.12);
+}
+
+.bead-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .bead-size-small {
+    width: 36px;
+    height: 36px;
+  }
+
+  .bead-size-large {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bead-size-small {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bead-size-large {
+    width: 42px;
+    height: 42px;
+  }
+}

@@ -1,0 +1,50 @@
+.round-summary-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 24, 48, 0.3);
+  backdrop-filter: blur(4px);
+  z-index: 20;
+}
+
+.round-summary-card {
+  width: min(520px, 90vw);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(235, 242, 255, 0.92));
+  border: 1px solid rgba(167, 187, 229, 0.5);
+  border-radius: 22px;
+  padding: 22px 24px;
+  box-shadow: 0 24px 48px rgba(86, 118, 170, 0.24);
+  display: grid;
+  gap: 14px;
+}
+
+.round-summary-title {
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.round-summary-total {
+  font-size: 56px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+.round-summary-list {
+  display: grid;
+  gap: 8px;
+}
+
+.round-summary-row {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.round-summary-score {
+  font-weight: 700;
+}

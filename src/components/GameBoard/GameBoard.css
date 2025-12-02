@@ -1,0 +1,62 @@
+.gameboard {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 245, 255, 0.9));
+  border: 1px solid rgba(167, 187, 229, 0.5);
+  box-shadow:
+    0 16px 28px rgba(86, 118, 170, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.gameboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.gameboard-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.gameboard-phase {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: rgba(108, 149, 255, 0.14);
+  border: 1px solid rgba(108, 149, 255, 0.35);
+}
+
+.slot-row {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(72px, 1fr));
+  gap: 12px;
+  align-items: center;
+  justify-items: center;
+}
+
+@media (max-width: 640px) {
+  .slot-row {
+    grid-template-columns: repeat(5, minmax(48px, 1fr));
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameboard {
+    padding: 14px;
+  }
+
+  .gameboard-title {
+    font-size: 16px;
+  }
+
+  .slot-row {
+    grid-template-columns: repeat(5, minmax(44px, 1fr));
+    gap: 6px;
+  }
+}

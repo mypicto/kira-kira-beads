@@ -1,0 +1,142 @@
+.result-view {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 243, 255, 0.9));
+  border: 1px solid rgba(167, 187, 229, 0.5);
+  display: grid;
+  gap: 14px;
+}
+
+.result-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.result-column {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(167, 187, 229, 0.5);
+}
+
+.result-label {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  opacity: 0.82;
+  margin-bottom: 8px;
+}
+
+.result-slot-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(52px, 1fr));
+  gap: 8px;
+}
+
+.result-slot-row .slot {
+  width: clamp(52px, 12vw, 68px);
+  height: clamp(52px, 12vw, 68px);
+}
+
+.result-score-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(236, 244, 255, 0.92));
+  border: 1px solid rgba(167, 187, 229, 0.5);
+}
+
+.score-main {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.score-number {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.score-rank {
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(108, 149, 255, 0.14);
+  border: 1px solid rgba(108, 149, 255, 0.3);
+  letter-spacing: 0.08em;
+}
+
+.score-bars {
+  display: grid;
+  gap: 10px;
+}
+
+.score-bar {
+  display: grid;
+  gap: 6px;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(167, 187, 229, 0.35);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6cffe7, #72a7ff);
+  border-radius: 999px;
+}
+
+.bar-fill-alt {
+  background: linear-gradient(90deg, #ffd36f, #ff9c60);
+}
+
+.score-meta {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .result-view {
+    padding: 12px;
+  }
+
+  .result-top {
+    grid-template-columns: 1fr;
+  }
+
+  .result-column {
+    padding: 10px;
+  }
+
+  .result-score-card {
+    grid-template-columns: 1fr;
+  }
+
+  .result-slot-row {
+    grid-template-columns: repeat(5, minmax(46px, 1fr));
+    gap: 6px;
+  }
+
+  .result-slot-row .slot {
+    width: clamp(46px, 14vw, 64px);
+    height: clamp(46px, 14vw, 64px);
+  }
+
+  .score-number {
+    font-size: 40px;
+  }
+}
