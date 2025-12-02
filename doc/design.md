@@ -318,6 +318,7 @@ export type GameAction =
 
   * Round1 / Round2：`ADVANCE_ROUND` → `RESET_PLACEMENT` → `SET_PHASE('idle')` → 次の `startProblem`
   * Round3：`SET_TOTAL_SUMMARY_VISIBLE(true)`（`showTotalSummary` 表示）、`SET_PHASE('idle')` で操作をロック
+  * NEXT 押下時に `RESET_PLACEMENT` を呼んで、次の問題の提示前に入力をクリアする
 
 6. `restartFromSummary`
 
@@ -352,6 +353,7 @@ export type GameAction =
 
 * 画面レイアウトも `App` で組み立てる（上段／中段／下段の配置）
 * SRP を維持するため、描画ロジックは子コンポーネントに委譲
+* `reproduce` 以外では「ビーズをえらんでね」（ストック内）のビーズのみ非活性表現（半透明・カーソル変更）にする。問題表示・答え合わせ用のビーズは常に活性表示。
 
 ### 5.3 GameBoard
 
@@ -560,6 +562,10 @@ props：
   * UIテキストはひらがな中心（漢字・英語は避けるが、外来語はカタカナ表記—例: ビーズ・ドラッグ・タップ）。
   * 子ども向けにやさしい色調（ライトテーマ基調、性別ニュートラルなパレット）と丸みのある角を採用。
   * メッセージは短く前向きな声がけで統一。
+* アニメーション方針：
+
+  * ビーズのホバー／フォーカスで回転・拡縮・色変化は行わない（形や状態が変わったと誤解しないようにする）。
+  * 必要に応じてフェードなどの穏やかなトランジションのみ許容。
 
 ---
 
