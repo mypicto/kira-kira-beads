@@ -1,4 +1,4 @@
-import { DragEvent, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { DragEvent, useEffect, useMemo, useReducer, useRef, useState, ChangeEvent } from 'react';
 import { Bead, Difficulty, MAX_ROUNDS } from './domain/gameTypes';
 import { DifficultyConfig, getDifficultyConfig } from './domain/difficulty';
 import { generateProblem } from './domain/problemGenerator';
@@ -124,11 +124,10 @@ export default function App() {
     startProblem();
   };
 
-  const handleToggleDifficulty = () => {
+  const handleSelectDifficulty = (event: ChangeEvent<HTMLSelectElement>) => {
     if (state.showTotalSummary) return;
     if (state.phase !== 'idle') return;
-
-    const next: Difficulty = state.difficulty === 'easy' ? 'normal' : 'easy';
+    const next = event.target.value as Difficulty;
     const emptySlots = createEmptySlots(getDifficultyConfig(next).numSlots);
     clearTimer();
     dispatch({ type: 'SET_DIFFICULTY', difficulty: next, slots: emptySlots });
@@ -155,9 +154,16 @@ export default function App() {
         </div>
         <div className="header-right">
           <RoundStatus currentRound={state.currentRound} maxRound={MAX_ROUNDS} />
-          <button className="btn btn-ghost" onClick={handleToggleDifficulty} disabled={state.showTotalSummary || state.phase !== 'idle'}>
-            ★ {state.difficulty === 'easy' ? 'かんたん' : 'ふつう'}
-          </button>
+          <select
+            className="difficulty-select"
+            value={state.difficulty}
+            onChange={handleSelectDifficulty}
+            disabled={state.showTotalSummary || state.phase !== 'idle'}
+          >
+            <option value="easy">かんたん</option>
+            <option value="normal">ふつう</option>
+            <option value="hard">むずかしい</option>
+          </select>
         </div>
       </header>
 

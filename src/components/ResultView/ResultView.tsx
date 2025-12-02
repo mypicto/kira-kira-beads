@@ -68,7 +68,10 @@ export function ResultView({
       <div className="result-top">
         <div className="result-column">
           <div className="result-label">おてほん</div>
-          <div className="result-slot-row">
+          <div
+            className="result-slot-row"
+            style={{ gridTemplateColumns: `repeat(${Math.min(problem.slots.length, 5)}, minmax(46px, 1fr))` }}
+          >
             {problem.slots.map((slot) => (
               <Slot key={slot.index} slot={slot} borderColor="green" disabled showIndex />
             ))}
@@ -76,7 +79,10 @@ export function ResultView({
         </div>
         <div className="result-column">
           <div className="result-label">あなたのこたえ</div>
-          <div className="result-slot-row">
+          <div
+            className="result-slot-row"
+            style={{ gridTemplateColumns: `repeat(${Math.min(problem.slots.length, 5)}, minmax(46px, 1fr))` }}
+          >
             {problem.slots.map((slot) => {
               const userSlot = placement.find((s) => s.index === slot.index);
               const borderColor = borderForSlots(slot, userSlot);

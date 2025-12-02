@@ -25,7 +25,7 @@ export type Problem = {
   slots: Slot[];
 };
 
-export type Difficulty = 'easy' | 'normal';
+export type Difficulty = 'easy' | 'normal' | 'hard';
 
 export type ResultRank = 'perfect' | 'good' | 'ok' | 'try';
 

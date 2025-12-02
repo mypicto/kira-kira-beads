@@ -131,7 +131,7 @@ export type Problem = {
   slots: Slot[];
 };
 
-export type Difficulty = 'easy' | 'normal'; // デフォルトは 'normal'
+export type Difficulty = 'easy' | 'normal' | 'hard'; // デフォルトは 'normal'
 
 export type ResultRank = 'perfect' | 'good' | 'ok' | 'try';
 
@@ -178,7 +178,18 @@ const normalConfig: DifficultyConfig = {
 };
 
 export function getDifficultyConfig(difficulty: Difficulty): DifficultyConfig {
-  return difficulty === 'easy' ? easyConfig : normalConfig;
+  if (difficulty === 'easy') return easyConfig;
+  if (difficulty === 'hard') {
+    return {
+      numSlots: 15, // 3x5
+      numBeadsInProblem: 15,
+      showDurationMs: 500,
+      colors: normalConfig.colors,
+      shapes: normalConfig.shapes,
+      sizes: normalConfig.sizes,
+    };
+  }
+  return normalConfig;
 }
 ```
 
@@ -333,12 +344,12 @@ export type GameAction =
 
 * `App`
 
-* `RoundStatus`（隣に難易度切替ボタンを配置）
+* `RoundStatus`（隣に難易度選択ドロップダウンを配置）
 * `GameBoard`
 * `ResultView`（phase === 'result' のときのみ）
 * `RoundSummary`（Round3 後に showTotalSummary が true のときのみ）
 * `BeadStock`
-* `Controls`
+* `Controls`（難易度選択はヘッダーのドロップダウンで実装）
 
 ### 5.2 App.tsx
 
@@ -354,6 +365,7 @@ export type GameAction =
 * 画面レイアウトも `App` で組み立てる（上段／中段／下段の配置）
 * SRP を維持するため、描画ロジックは子コンポーネントに委譲
 * `reproduce` 以外では「ビーズをえらんでね」（ストック内）のビーズのみ非活性表現（半透明・カーソル変更）にする。問題表示・答え合わせ用のビーズは常に活性表示。
+* 難易度選択はドロップダウンで easy/normal/hard を選ぶ。`hard` では GameBoard/ResultView を 3 行 × 5 列で表示。
 
 ### 5.3 GameBoard
 
@@ -369,6 +381,7 @@ export type GameAction =
 * `phase === 'showing'` のとき：`currentProblem.slots` のビーズを表示
 * `phase === 'reproduce'` のとき：`currentPlacement` のビーズを表示
 * ドラッグ＆ドロップ／クリックによる配置・削除を扱う
+* レイアウトは難易度で可変（easy/normal: 1×5, hard: 3×5 のグリッド）
 
 props：
 

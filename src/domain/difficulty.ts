@@ -27,6 +27,17 @@ const normalConfig: DifficultyConfig = {
   sizes: ['small', 'large'],
 };
 
+const hardConfig: DifficultyConfig = {
+  numSlots: 15,
+  numBeadsInProblem: 15,
+  showDurationMs: 500,
+  colors: normalConfig.colors,
+  shapes: normalConfig.shapes,
+  sizes: normalConfig.sizes,
+};
+
 export function getDifficultyConfig(difficulty: Difficulty): DifficultyConfig {
-  return difficulty === 'easy' ? easyConfig : normalConfig;
+  if (difficulty === 'easy') return easyConfig;
+  if (difficulty === 'hard') return hardConfig;
+  return normalConfig;
 }

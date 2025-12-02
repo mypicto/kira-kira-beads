@@ -44,6 +44,15 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+.difficulty-select {
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(167, 187, 229, 0.8);
+  background: #fff;
+  color: var(--text-main);
+  font-weight: 700;
+}
 .app-title {
   display: flex;
   align-items: baseline;

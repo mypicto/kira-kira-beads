@@ -14,6 +14,8 @@ type Props = {
 export function GameBoard({ phase, problem, placement, onSlotDrop, onSlotClear, disabled = false }: Props) {
   const displaySlots = phase === 'showing' && problem ? problem.slots : placement;
   const canInteract = phase === 'reproduce' && !disabled;
+  const isHardLayout = displaySlots.length > 5;
+  const columns = isHardLayout ? 5 : displaySlots.length || 5;
 
   const title = (() => {
     if (phase === 'showing') return 'おてほんをおぼえてね';
@@ -35,7 +37,7 @@ export function GameBoard({ phase, problem, placement, onSlotDrop, onSlotClear, 
         <div className="gameboard-title">{title}</div>
         <div className="gameboard-phase">{phaseLabel}</div>
       </div>
-      <div className="slot-row">
+      <div className="slot-row" style={{ gridTemplateColumns: `repeat(${columns}, minmax(48px, 1fr))` }}>
         {displaySlots.map((slot) => (
           <Slot
             key={slot.index}
