@@ -1,5 +1,5 @@
 export type Color = 'red' | 'orange' | 'yellow' | 'sky' | 'blue';
-export type Shape = 'circle' | 'rounded-rect' | 'diamond';
+export type Shape = 'circle' | 'rounded-rect' | 'diamond' | 'small-rect';
 export type Size = 'small' | 'large';
 
 export type BeadId = string;

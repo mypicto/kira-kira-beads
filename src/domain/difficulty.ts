@@ -14,7 +14,7 @@ const easyConfig: DifficultyConfig = {
   numBeadsInProblem: 3,
   showDurationMs: 700,
   colors: ['red', 'yellow', 'sky'],
-  shapes: ['circle'],
+  shapes: ['circle', 'small-rect'],
   sizes: ['small'],
 };
 

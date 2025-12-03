@@ -201,7 +201,7 @@ type DifficultyConfig = {
 * `numBeadsInProblem`: 3
 * `showDurationMs`: 700
 * `colors`: ['red', 'yellow', 'sky']
-* `shapes`: ['circle']
+* `shapes`: ['circle', 'small-rect'] （形は「小さな丸」「小さな四角」の2種類）
 * `sizes`: ['small']
 
 #### NORMAL 設定

@@ -33,6 +33,12 @@
   border-radius: 14px;
 }
 
+.bead-shape-small-rect {
+  border-radius: 10px;
+  width: 42px;
+  height: 32px;
+}
+
 .bead-shape-diamond {
   transform: rotate(45deg);
   border-radius: 12px;
