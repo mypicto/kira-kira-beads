@@ -30,11 +30,11 @@
 }
 
 .bead-shape-rounded-rect {
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
 .bead-shape-small-rect {
-  border-radius: 10px;
+  border-radius: 6px;
   width: 42px;
   height: 32px;
 }
